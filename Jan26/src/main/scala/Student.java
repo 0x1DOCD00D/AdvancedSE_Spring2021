@@ -7,7 +7,6 @@ public class Student {
 
     static void builder() {
         Object o;
-        o.
         intObject = new Student();
     }
     
