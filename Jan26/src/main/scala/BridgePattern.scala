@@ -1,22 +1,22 @@
 object BridgePattern extends App {
-  trait SomeGeneralAbstract {
+  trait DataConnectionAPI {
     def behavior: Boolean
   }
   
-  trait ConcreteChild1 extends SomeGeneralAbstract {
+  trait RelationalDatabases extends DataConnectionAPI {
     override def behavior: Boolean = true  
   }
   
-  trait ConcreteChild2 extends SomeGeneralAbstract {
+  trait CsvFiles extends DataConnectionAPI {
     override def behavior: Boolean = false 
   }
   
-  abstract class Model {
-    this: SomeGeneralAbstract =>
+  abstract class DataProcessor {
+    this: DataConnectionAPI =>
     def DoIt: Boolean 
   }
   
-  class RefineModel1 extends Model with ConcreteChild1 {
+  class Processor4Oracle extends DataProcessor with RelationalDatabases {
     override def DoIt: Boolean = behavior 
   }
   
